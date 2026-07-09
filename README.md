@@ -1,5 +1,6 @@
 # Shopify-App
-Practicing making a full stack shopify application
+Practicing making a full stack shopify application.
+
 
 
 
