@@ -10,7 +10,7 @@ export default function About() {
     return(
         <Container maxWidth="md" sx={{mt: 6}}>
             <Paper
-            elvation={3}
+            elevation={3}
             sx={{
                 p:5,
                 borderRadius: 3

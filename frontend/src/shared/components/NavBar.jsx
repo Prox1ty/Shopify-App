@@ -67,7 +67,7 @@ export default function NavBar() {
                 <Box sx={{ flexGrow: 1 }}></Box>
 
                 {/* cart */}
-                <IconButton color="inherit">
+                <IconButton color="inherit" aria-label="cart">
                     <Badge badgeContent={0} color="error">
                         <ShoppingCartIcon />
                     </Badge>
