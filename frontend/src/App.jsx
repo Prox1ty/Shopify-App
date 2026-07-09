@@ -1,12 +1,20 @@
-import { useState } from "react";
+// react functions
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import NavBar from "./shared/components/NavBar";
 import { lazy, Suspense } from "react";
+
+// materialUI
+import { ThemeProvider, createTheme } from "@mui/material/styles"
+import CssBaseline from "@mui/material/CssBaseline";
+import theme from "./theme.js";
+
+// custom components
+import { NavBar } from "./shared/components";
 
 const Home = lazy(() => import("./pages/Home"));
 const About = lazy(() => import("./pages/About"));
 const Products = lazy(() => import("./pages/Products"));
 const Product = lazy(() => import("./components/Product.jsx"));
+
 
 export default function App() {
 

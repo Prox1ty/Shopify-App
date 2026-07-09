@@ -1,39 +1,79 @@
-import { Link, NavLink } from 'react-router-dom'
+import { NavLink } from "react-router-dom";
+import {
+    AppBar,
+    Toolbar,
+    Typography,
+    Button,
+    Box,
+    IconButton,
+    Badge
+} from "@mui/material";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 export default function NavBar() {
+    const navLinks = [
+        { name: "Home", path: "/" },
+        { name: "Products", path:"/Products" },
+        { name: "About Us", path: "/About" }
+    ];
+
     return (
-        <>
-            <nav className="flex justify-around bg-blue-900 text-white h-12 px-6">
-                <ul className="flex w-3/4 h-full items-center">
-                    <li className="flex-1 text-center h-full">
-                        {/* didnt use {isActive} property here. could be used for styling */}
-                        <NavLink 
-                        to="/"
-                        className="block w-full h-full py-2.5 font-bold text-xl transition-all hover:bg-black/25"
+        <AppBar position="sticky" color="primary" elevation={2}>
+            <Toolbar>
+
+                <Typography
+                variant="h5"
+                component={NavLink}
+                to="/"
+                sx={{
+                    textDecoration:"none",
+                    color:"inherit",
+                    fontWeight:"bold"
+                }} 
+                >
+                    My Store hihi welcome
+                </Typography>
+
+                {/* push nav links to the center */}
+                <Box sx={{ flexGrow: 1 }}></Box>
+
+                {/* navigation links */}
+                <Box
+                sx={{
+                    display: "flex",
+                    gap: 2
+                }}
+                >
+                    {navLinks.map((link) => (
+                        <Button
+                        key={link.path}
+                        component={NavLink}
+                        to={link.path}
+                        sx={{
+                            color: "white",
+                            fontWeight:"bold",
+                            "&.active": {
+                                borderBottom: "2px solid white",
+                                borderRadius: 0
+                            }
+                        }}
                         >
-                            Home
-                        </NavLink>
-                    </li>
-                    <li className="flex-1 text-center h-full">
-                        <NavLink 
-                        to="/Products"
-                        className="block w-full h-full py-2.5 font-bold text-xl transition-all hover:bg-black/25"
-                        >
-                            Products
-                        </NavLink>
-                    </li>
-                    <li className="flex-1 text-center h-full">
-                        <NavLink 
-                        to="/About"
-                        className="block w-full h-full py-2.5 font-bold text-xl transition-all hover:bg-black/25"
-                        >
-                            About Us
-                        </NavLink>
-                    </li>
-                </ul>
-                <h3 className="font-bold text-xl hover:underline mt-1.5 cursor-pointer">Cart</h3>
-            </nav>
-        </>
+                            {link.name}
+                        </Button>
+                    ))}
+                </Box>
+
+                {/* push cart to the far right */}
+                <Box sx={{ flexGrow: 1 }}></Box>
+
+                {/* cart */}
+                <IconButton color="inherit" aria-label="cart">
+                    <Badge badgeContent={0} color="error">
+                        <ShoppingCartIcon />
+                    </Badge>
+                </IconButton>
+            </Toolbar>
+        </AppBar>
     )
 
 }
