@@ -9,6 +9,7 @@ import theme from "./theme.js";
 
 // custom components
 import { NavBar } from "./shared/components";
+import CartPage from './pages/CartPage.jsx';
 
 const Home = lazy(() => import("./pages/Home"));
 const About = lazy(() => import("./pages/About"));
@@ -32,6 +33,7 @@ export default function App() {
                 <Route index element={<Products />} />
                 <Route path=":prodId" element={<Product/>} />
               </Route>
+              <Route path= "/Cart" element={<CartPage />} />
           </Routes>
         </Suspense>
 

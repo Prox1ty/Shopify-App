@@ -1,7 +1,11 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../features/cartSlice";
 
 export default function Product() {
+    const dispatch = useDispatch();
+
     const { prodId } = useParams();
     
     const [product, setProduct] = useState(null);
@@ -20,14 +24,21 @@ export default function Product() {
         })
     }, [prodId]);
 
+    const handleSubmit = (e, product) => {
+        e.preventDefault();
+        dispatch(addToCart({
+            id: parseInt(prodId),
+            title: product.name,
+            price: product.price,
+            imgURL: product.imageUrl
+        }));
+    }
+
     if (loading) return <div className="text-center text-xl mt-10">Loading detailed specs...</div>;
     if (!product) if (!product) return <div className="text-center text-xl mt-10 text-red-500">Product Not Found.</div>;
 
     return (
-        /* Added a main wrapper flexbox container to place image and text side-by-side */
         <div className="max-w-5xl mx-auto p-10 flex flex-col md:flex-row gap-10 items-center md:items-start">
-            
-            {/* 1. Added Left Side: Image Box */}
             <div className="w-full md:w-1/2">
                 <img 
                     src={product.imageUrl} 
@@ -36,7 +47,7 @@ export default function Product() {
                 />
             </div>
 
-            {/* Right Side: Description & Specifications Details */}
+        
             <div className="w-full md:w-1/2 flex flex-col justify-between min-h-[450px]">
                 <div>
                     <span className="text-gray-400 font-bold text-sm">{`PRODUCT SKU: #0${product.id}`}</span>
@@ -59,6 +70,12 @@ export default function Product() {
                         </span>
                     )}
                 </div>
+                <form onSubmit={(e) => handleSubmit(e, product)}>
+                    <button
+                        type="submit"
+                        className="w-full mt-4 py-3 px-6 bg-blue-600 hover:bg-blue-700 active:bg-blue-800 active:scale-[0.98] text-white text-lg font-semibold rounded-xl transition-all duration-200 shadow-sm hover:shadow-md cursor-pointer"
+                    >Add To Cart</button>
+                </form>
             </div>
 
         </div>
