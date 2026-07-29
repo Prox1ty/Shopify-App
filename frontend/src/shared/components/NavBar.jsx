@@ -9,12 +9,13 @@ import {
     Badge
 } from "@mui/material";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import CartBadge from "./CartBadge";
 
 export default function NavBar() {
     const navLinks = [
         { name: "Home", path: "/" },
         { name: "Products", path:"/Products" },
-        { name: "About Us", path: "/About" }
+        { name: "About Us", path: "/About" },
     ];
 
     return (
@@ -31,13 +32,11 @@ export default function NavBar() {
                     fontWeight:"bold"
                 }} 
                 >
-                    My Store hihi welcome
+                    My Store 
                 </Typography>
 
-                {/* push nav links to the center */}
                 <Box sx={{ flexGrow: 1 }}></Box>
 
-                {/* navigation links */}
                 <Box
                 sx={{
                     display: "flex",
@@ -63,15 +62,23 @@ export default function NavBar() {
                     ))}
                 </Box>
 
-                {/* push cart to the far right */}
                 <Box sx={{ flexGrow: 1 }}></Box>
 
-                {/* cart */}
-                <IconButton color="inherit" aria-label="cart">
-                    <Badge badgeContent={0} color="error">
-                        <ShoppingCartIcon />
-                    </Badge>
-                </IconButton>
+                <Button
+                    key={"/Cart"}
+                    component={NavLink}
+                    to={"/Cart"}
+                    sx={{
+                        color: "white",
+                        fontWeight:"bold",
+                        "&.active": {
+                            borderBottom: "2px solid white",
+                            borderRadius: 0
+                        }
+                    }}
+                >
+                    <CartBadge />
+                </Button>
             </Toolbar>
         </AppBar>
     )
