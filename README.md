@@ -19,7 +19,7 @@ Understanding the flow of a Redux application and understanding differences betw
 
 Experimenting with Material UI components and comparing with standard Tailwind styling.
 
-## Limitations and Problems
+## Limitations
 
 * Currently the Checkout button does nothing since I don't have a backend to forward the order request to.
 * Using a dummy products.json file to display products. 
