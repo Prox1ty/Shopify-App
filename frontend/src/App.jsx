@@ -10,6 +10,7 @@ import theme from "./theme.js";
 // custom components
 import { NavBar } from "./shared/components";
 import CartPage from './pages/CartPage.jsx';
+import Footer from './shared/components/Footer.jsx';
 
 const Home = lazy(() => import("./pages/Home"));
 const About = lazy(() => import("./pages/About"));
@@ -24,17 +25,22 @@ export default function App() {
     // BrowserRouter is named as Router
 
     <Router>
-        <NavBar />
         <Suspense fallback={<div className="text-center text-2xl mt-10">Loading page files...</div>}>
-          <Routes>
-              <Route index element={<Home />} />
-              <Route path="/About" element={<About />} />
-              <Route path="/Products">
-                <Route index element={<Products />} />
-                <Route path=":prodId" element={<Product/>} />
-              </Route>
-              <Route path= "/Cart" element={<CartPage />} />
-          </Routes>
+        <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+          <NavBar />
+          <main style={{ flexGrow: 1 }}>
+            <Routes>
+                <Route index element={<Home />} />
+                <Route path="/About" element={<About />} />
+                <Route path="/Products">
+                  <Route index element={<Products />} />
+                  <Route path=":prodId" element={<Product/>} />
+                </Route>
+                <Route path= "/Cart" element={<CartPage />} />
+            </Routes>
+          </main>
+            <Footer />
+          </div>
         </Suspense>
 
     </Router>

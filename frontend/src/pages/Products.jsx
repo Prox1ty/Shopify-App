@@ -7,7 +7,6 @@ import { Card } from "../components";
 export default function Products() {
 
     const dispatch = useDispatch();
-    console.log(useSelector(state => state));
     const products = useSelector(state => state.products.items);
     const status = useSelector(state => state.products.status);
 
@@ -26,7 +25,7 @@ export default function Products() {
                 <div className="w-full min-h-screen p-10 bg-gray-50 flex flex-col items-center">
                     <div className="w-full max-w-5xl">
                         <h1 className="text-5xl font-black tracking-tight pb-8 pl-2 text-gray-900">All Products...</h1>
-                        <div className="grid grid-cols-3 w-full gap-8 justify-center">
+                        <div className="sm:grid sm:grid-cols-3 w-full gap-8 justify-center">
                             {
                                 products.map((product) => {
                                     const { id, name, price, imageUrl:url } = product;

@@ -1,4 +1,11 @@
+@import "tailwindcss";
+
 * {
     box-sizing: border-box;
 }
-@import "tailwindcss";
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
