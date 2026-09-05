@@ -1,0 +1,237 @@
+[
+  {
+    "id": 1,
+    "name": "Premium Mechanical Keyboard (75%)",
+    "price": 89.99,
+    "imageUrl": "/products/keyboard.jpg",
+    "description": "A compact 75% layout mechanical keyboard featuring hot-swappable switches, dynamic RGB backlighting, and a premium aluminum top frame.",
+    "specs": ["75% Compact Layout", "Hot-Swappable Outemu Switches", "Gasket Mounted", "USB-C Detachable Cable"],
+    "stock": 14
+  },
+  {
+    "id": 2,
+    "name": "Wireless Ergonomic Mouse",
+    "price": 45.50,
+    "imageUrl": "/products/mouse.jpg",
+    "description": "An ergonomic wireless mouse designed to reduce wrist strain during long coding sessions. Equipped with an adjustable DPI optical sensor.",
+    "specs": ["Ergonomic Vertical Design", "2.4GHz & Bluetooth Dual Mode", "Up to 4000 DPI", "Rechargeable Battery"],
+    "stock": 22
+  },
+  {
+    "id": 3,
+    "name": "UltraWide Gaming Monitor 34\"",
+    "price": 349.99,
+    "imageUrl": "/products/monitor.jpg",
+    "description": "Immerse yourself in your IDE or your games with this immersive 34-inch ultra-wide curved screen with crisp resolution and high refresh rates.",
+    "specs": ["34-inch 21:9 UltraWide", "1440p WQHD Resolution", "144Hz Refresh Rate", "1500R Curvature"],
+    "stock": 5
+  },
+  {
+    "id": 4,
+    "name": "Noise-Cancelling Over-Ear Headphones",
+    "price": 120.00,
+    "imageUrl": "/products/headphones.jpg",
+    "description": "Block out ambient noise completely. Experience pristine acoustic depth and stay completely focused on your workflow anywhere.",
+    "specs": ["Active Noise Cancellation (ANC)", "40-hour Battery Life", "Bluetooth 5.2", "Hi-Res Audio Certified"],
+    "stock": 9
+  },
+  {
+    "id": 5,
+    "name": "Minimalist Desk Mat (XL)",
+    "price": 24.95,
+    "imageUrl": "/products/deskmat.jpg",
+    "description": "An extra-large desk pad stitched elegantly around the edges. It protects your desk space while offering optimized tracking for mice.",
+    "specs": ["900mm x 400mm x 4mm", "Water-resistant Surface", "Non-slip Rubber Base", "Anti-fraying Stitched Edges"],
+    "stock": 30
+  },
+  {
+    "id": 6,
+    "name": "USB-C Multi-Port Hub",
+    "price": 35.00,
+    "imageUrl": "https://via.placeholder.com/256?text=No+Image",
+    "description": "Expand your limited laptop connectivity options instantly with this aluminum multi-port adapter featuring pass-through charging.",
+    "specs": ["4K HDMI Output", "3x USB 3.0 Ports", "SD/MicroSD Card Slots", "100W Power Delivery Pass-Through"],
+    "stock": 17
+  },
+  {
+    "id": 7,
+    "name": "Mechanical Gaming Keyboard (TKL)",
+    "price": 79.99,
+    "imageUrl": "/products/tkl-keyboard.jpg",
+    "description": "A tenkeyless mechanical keyboard built for gaming and productivity, featuring responsive switches and customizable RGB lighting.",
+    "specs": ["80% TKL Layout", "Hot-Swappable Switches", "Per-Key RGB Lighting", "Detachable USB-C Cable"],
+    "stock": 18
+  },
+  {
+    "id": 8,
+    "name": "Precision Wireless Gaming Mouse",
+    "price": 59.99,
+    "imageUrl": "/products/gaming-mouse.jpg",
+    "description": "A lightweight wireless gaming mouse with a high-precision sensor, customizable buttons, and low-latency wireless connectivity.",
+    "specs": ["26000 DPI Sensor", "2.4GHz Wireless", "6 Programmable Buttons", "70-hour Battery Life"],
+    "stock": 12
+  },
+  {
+    "id": 9,
+    "name": "27-inch QHD Productivity Monitor",
+    "price": 279.99,
+    "imageUrl": "/products/qhd-monitor.jpg",
+    "description": "A sharp 27-inch QHD monitor designed for developers, creators, and multitaskers who need plenty of workspace.",
+    "specs": ["27-inch IPS Panel", "2560x1440 Resolution", "100Hz Refresh Rate", "USB-C Connectivity"],
+    "stock": 8
+  },
+  {
+    "id": 10,
+    "name": "USB Condenser Desktop Microphone",
+    "price": 69.99,
+    "imageUrl": "/products/microphone.jpg",
+    "description": "A studio-style USB microphone designed for clear voice recordings, online meetings, streaming, and gaming.",
+    "specs": ["Cardioid Pickup Pattern", "USB Plug-and-Play", "Adjustable Gain Control", "Headphone Monitoring"],
+    "stock": 16
+  },
+  {
+    "id": 11,
+    "name": "Adjustable Aluminum Laptop Stand",
+    "price": 39.95,
+    "imageUrl": "/products/laptop-stand.jpg",
+    "description": "A sturdy aluminum laptop stand that raises your screen to a comfortable viewing height while improving desk organization.",
+    "specs": ["Adjustable Height", "Foldable Design", "Aluminum Construction", "Supports Up to 17-inch Laptops"],
+    "stock": 25
+  },
+  {
+    "id": 12,
+    "name": "USB-C Fast Charging Cable",
+    "price": 14.99,
+    "imageUrl": "/products/usb-c-cable.jpg",
+    "description": "A durable braided USB-C cable designed for fast charging and reliable data transfer across modern devices.",
+    "specs": ["100W Power Delivery", "USB 3.2 Data Transfer", "Braided Nylon Exterior", "2-Meter Length"],
+    "stock": 45
+  },
+  {
+    "id": 13,
+    "name": "Portable SSD 1TB",
+    "price": 109.99,
+    "imageUrl": "/products/portable-ssd.jpg",
+    "description": "A compact high-speed external SSD for quickly transferring large files, backing up projects, and expanding your storage.",
+    "specs": ["1TB Storage", "Up to 1050MB/s Read Speed", "USB-C Interface", "Shock Resistant Design"],
+    "stock": 11
+  },
+  {
+    "id": 14,
+    "name": "RGB Extended Desk Pad",
+    "price": 32.50,
+    "imageUrl": "/products/rgb-deskpad.jpg",
+    "description": "An oversized desk pad with customizable RGB edge lighting that provides a smooth surface for both your keyboard and mouse.",
+    "specs": ["800mm x 300mm Surface", "RGB Edge Lighting", "Water-resistant Coating", "Non-slip Rubber Base"],
+    "stock": 27
+  },
+  {
+    "id": 15,
+    "name": "Ergonomic Mesh Office Chair",
+    "price": 189.99,
+    "imageUrl": "/products/office-chair.jpg",
+    "description": "A breathable ergonomic office chair with adjustable lumbar support and armrests designed for long work and study sessions.",
+    "specs": ["Adjustable Lumbar Support", "Breathable Mesh Back", "Adjustable Armrests", "Tilt and Lock Mechanism"],
+    "stock": 6
+  },
+  {
+    "id": 16,
+    "name": "Dual Monitor Arm Stand",
+    "price": 89.50,
+    "imageUrl": "/products/monitor-arm.jpg",
+    "description": "A heavy-duty dual monitor arm that frees up desk space and allows precise positioning of two displays.",
+    "specs": ["Dual Monitor Support", "VESA 75x75 & 100x100", "Height Adjustable", "Cable Management"],
+    "stock": 10
+  },
+  {
+    "id": 17,
+    "name": "Bluetooth Portable Speaker",
+    "price": 54.99,
+    "imageUrl": "/products/speaker.jpg",
+    "description": "A compact wireless speaker delivering balanced sound with a durable design suitable for desks, rooms, and outdoor use.",
+    "specs": ["Bluetooth 5.3", "12-hour Battery Life", "IPX5 Water Resistance", "Stereo Pairing"],
+    "stock": 19
+  },
+  {
+    "id": 18,
+    "name": "1080p USB Webcam",
+    "price": 49.99,
+    "imageUrl": "/products/webcam.jpg",
+    "description": "A plug-and-play Full HD webcam designed for video calls, online classes, streaming, and remote work.",
+    "specs": ["1080p Full HD", "30 FPS Video", "Built-in Stereo Microphones", "Universal Monitor Mount"],
+    "stock": 21
+  },
+  {
+    "id": 19,
+    "name": "Wireless Charging Pad",
+    "price": 22.99,
+    "imageUrl": "/products/charging-pad.jpg",
+    "description": "A slim wireless charging pad with a non-slip surface and intelligent charging protection for compatible smartphones and accessories.",
+    "specs": ["15W Fast Charging", "Qi Compatible", "LED Charging Indicator", "Non-slip Surface"],
+    "stock": 34
+  },
+  {
+    "id": 20,
+    "name": "Smart LED Desk Lamp",
+    "price": 42.00,
+    "imageUrl": "/products/desk-lamp.jpg",
+    "description": "A modern LED desk lamp with adjustable brightness and color temperature for comfortable coding, reading, and studying.",
+    "specs": ["Adjustable Brightness", "Three Color Temperatures", "Touch Controls", "USB Charging Port"],
+    "stock": 15
+  },
+  {
+    "id": 21,
+    "name": "Gaming Headset with Detachable Mic",
+    "price": 84.99,
+    "imageUrl": "/products/gaming-headset.jpg",
+    "description": "A comfortable gaming headset with immersive stereo audio, memory foam ear cushions, and a detachable boom microphone.",
+    "specs": ["50mm Audio Drivers", "Detachable Microphone", "Memory Foam Ear Cups", "3.5mm Audio Jack"],
+    "stock": 13
+  },
+  {
+    "id": 22,
+    "name": "Laptop Cooling Pad",
+    "price": 36.99,
+    "imageUrl": "/products/cooling-pad.jpg",
+    "description": "A slim laptop cooling pad with multiple fans designed to improve airflow during intensive gaming, development, and rendering workloads.",
+    "specs": ["Five Cooling Fans", "Adjustable Fan Speed", "USB Powered", "Fits Up to 17-inch Laptops"],
+    "stock": 20
+  },
+  {
+    "id": 23,
+    "name": "Wireless Numeric Keypad",
+    "price": 29.99,
+    "imageUrl": "/products/numeric-keypad.jpg",
+    "description": "A compact wireless numeric keypad that adds dedicated number keys to laptops and compact keyboards.",
+    "specs": ["Wireless Bluetooth Connection", "Low-profile Keys", "Rechargeable Battery", "Compact Design"],
+    "stock": 24
+  },
+  {
+    "id": 24,
+    "name": "4K USB-C Display Adapter",
+    "price": 31.99,
+    "imageUrl": "/products/display-adapter.jpg",
+    "description": "A compact USB-C display adapter that connects modern laptops and tablets to external HDMI displays and projectors.",
+    "specs": ["4K HDMI Output", "60Hz Support", "Plug-and-Play", "Aluminum Housing"],
+    "stock": 29
+  },
+  {
+    "id": 25,
+    "name": "16GB DDR5 Desktop RAM",
+    "price": 64.99,
+    "imageUrl": "/products/ddr5-ram.jpg",
+    "description": "A high-performance DDR5 memory module designed to improve multitasking and application performance on compatible desktop systems.",
+    "specs": ["16GB Capacity", "DDR5 Technology", "5600MHz Speed", "Desktop DIMM"],
+    "stock": 32
+  },
+  {
+    "id": 26,
+    "name": "2TB NVMe PCIe SSD",
+    "price": 139.99,
+    "imageUrl": "/products/nvme-ssd.jpg",
+    "description": "A high-speed NVMe solid-state drive offering generous storage for games, applications, development environments, and media.",
+    "specs": ["2TB Storage", "PCIe 4.0 Interface", "Up to 7000MB/s Read Speed", "M.2 2280 Form Factor"],
+    "stock": 7
+  }
+
+]
