@@ -2,10 +2,34 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { addToCart, removeFromCart } from '../features/cartSlice';
+import { checkout } from '../features/cartSlice';
+import { useNavigate } from 'react-router-dom';
 
 export default function CartPage() {
 
     const [user, setUser] = useState(null);
+    const navigate = useNavigate();
+    const handleCheckout = async() => {
+        const result = await dispatch(checkout());
+
+        if (checkout.rejected.match(result)) {
+            const errorPayload = result.payload;
+
+            if (errorPayload?.message?.includes("Authentication") || result.error.message.includes(401)) {
+                alert("You must be logged in to checkout!");
+                navigate('/register');
+            }
+        } else if (checkout.fulfilled) {
+            alert('Order placed');
+            const state = getSelection();
+
+            state.cartItems = [];
+            state.quantity = 0;
+            state.totalPrice = 0;
+            state.status = 'idle'
+        }
+
+    }
 
     useEffect(() => {
         fetch('/user/api/me', {
@@ -99,7 +123,8 @@ export default function CartPage() {
                             <span className="block text-sm text-gray-500 font-medium uppercase tracking-wider">Total</span>
                             <span className="text-4xl font-black text-gray-900">${totalPrice.toFixed(2)}</span>
                         </div>
-                        <button className={`py-4 px-8 ${user ? 'bg-blue-600' : 'bg-gray-600'} hover:bg-blue-700 active:bg-blue-800 active:scale-[0.98] text-white text-lg font-semibold rounded-xl transition-all duration-200 shadow-sm cursor-pointer`}>
+                        <button onClick={() => {handleCheckout()}}
+                        className={`py-4 px-8 ${user ? 'bg-blue-600' : 'bg-gray-600'} hover:bg-blue-700 active:bg-blue-800 active:scale-[0.98] text-white text-lg font-semibold rounded-xl transition-all duration-200 shadow-sm cursor-pointer`}>
                             Checkout
                         </button>
                     </div>
