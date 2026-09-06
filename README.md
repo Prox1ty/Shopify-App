@@ -92,11 +92,9 @@ npm install
 ### Configuration
 
 Create a `.env` file in the `backend` directory with the following variables:
-```
-MONGO_URI=<your-mongodb-connection-string>
-PORT=5000
-JWT_SECRET=<your-secret-key>
-```
+    MONGODB_CONNECTIONURL=<your-mongodb-connection-string>
+    PORT=5000
+    JWTSECRET=<your-secret-key>
 
 ### Running the Application
 
