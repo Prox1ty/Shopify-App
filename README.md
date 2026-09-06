@@ -35,7 +35,7 @@ An interactive e-commerce webpage built with centralized state management, reusa
 ## Project Structure
 
 ```
-shopify-app-thingy/
+Shopify-App/
 ├── backend/
 │   ├── models/              # MongoDB schemas (User, Product, Order)
 │   ├── routes/              # API endpoints
