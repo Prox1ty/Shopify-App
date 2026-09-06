@@ -22,7 +22,7 @@ const orderItemSchema = Schema({
 }, { _id: false }); // mongoose won't auto assign ids now
 
 const orderSchema = Schema({
-    products: [orderItemSchema],
+    products: [orderItemSchema], // array of subdocuments
     totalAmount: {
         type: Number,
         required: true
