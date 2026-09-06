@@ -6,6 +6,7 @@ import { checkForAuthCookie } from "./middleware/authentication.js";
 import mongoose from "mongoose";
 import { userRoutes } from "./routes/user.js";
 import { productRoute } from "./routes/product.js";
+import { ordersRoute } from "./routes/orders.js";
 
 config();
 const app = express();
@@ -15,6 +16,7 @@ mongoose.connect(process.env.MONGODB_CONNECTIONURL)
     .then(() => console.log("Connected to mongodb"))
     .catch((error) => console.error("MongoDB connection failed:", error));
 
+app.use(express.json());
 app.use(express.urlencoded()); // handles form data
 app.use(cookieParser());
 app.use(checkForAuthCookie("token"));
@@ -26,6 +28,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/user', userRoutes);
+app.use('/orders', ordersRoute);
 app.use('/', productRoute);
 
 app.listen(PORT, (err) => { console.log(`Server running at ${PORT}`) });

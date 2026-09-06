@@ -1,9 +1,34 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import axios from 'axios'
+
+export const checkout = createAsyncThunk(
+    'cart/checkout',
+    async (_, { getState, rejectWithValue }) => {
+        try {
+            const state = getState();
+            const cartItems = state.cart.cartItems;
+            const qty = state.cart.quantity;
+            const totalPrice = state.cart.totalPrice;
+
+            const orderData = {
+                items: cartItems,
+                qty: qty,
+                total: totalPrice
+            }
+
+            const response = await axios.post('/orders', orderData);
+            return response.data;
+        } catch (error) {
+            return rejectWithValue(error.response?.data || "Failed to place order");
+        }        
+    }
+)
 
 const initialState = {
     cartItems: [],
     totalQuantity: 0,
-    totalPrice: 0
+    totalPrice: 0,
+    status: 'idle'
 };
 
 export const cartSlice = createSlice({
@@ -49,6 +74,18 @@ export const cartSlice = createSlice({
                 }
             }
         }
+    }, 
+    extraReducers: (builder) => {
+        builder
+        .addCase(checkout.pending, (state) => {
+            state.status = 'loading';
+        })
+        .addCase(checkout.fulfilled, (state, action) => {
+            state.status = 'succeeded';
+        })
+        .addCase(checkout.rejected, (state) => {
+            state.status = 'rejected';
+        });
     }
 });
 

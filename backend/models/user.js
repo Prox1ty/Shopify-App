@@ -1,4 +1,4 @@
-import mongoose from 'mongoose'
+import mongoose, { Schema } from 'mongoose'
 import { createHmac, randomBytes } from "crypto";
 import { generateUserToken } from '../services/authentication.js';
 
@@ -29,7 +29,7 @@ const UserSchema = mongoose.Schema({
         type: String,
         enum: ["USER", "SELLER"],
         default: "USER"
-    }
+    },
 }, {timestamps: true});
 
 UserSchema.pre('save', function() {

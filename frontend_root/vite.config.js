@@ -17,7 +17,8 @@ export default defineConfig({
       '/api/products': 'http://localhost:8000',
       '/api/get': 'http://localhost:8000',
       '/images': 'http://localhost:8000',
-      '/uploads': 'http://localhost:8000'
+      '/uploads': 'http://localhost:8000',
+      '/orders': 'http://localhost:8000'
     }
   }
 })
