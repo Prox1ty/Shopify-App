@@ -11,7 +11,7 @@ export default function Product() {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch(`/api/get/${prodId}`)
+        fetch(`http://localhost:8000/api/get/${prodId}`)
             .then(async (response) => {
             if (!response.ok) {
                 throw new Error(`Failed to load product (${response.status})`);

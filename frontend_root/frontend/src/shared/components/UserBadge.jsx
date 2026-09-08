@@ -16,7 +16,7 @@ function UserBadge() {
   const isLoggedIn = Boolean(user);
 
   useEffect(() => {
-    fetch("/user/api/me", { credentials: "include" })
+    fetch("http://localhost:8000/user/api/me", { credentials: "include" })
       .then((response) => response.ok ? response.json() : null)
       .then((currentUser) => setUser(currentUser))
       .catch(() => setUser(null));

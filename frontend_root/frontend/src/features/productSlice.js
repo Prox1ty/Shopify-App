@@ -4,7 +4,7 @@ export const fetchProducts = createAsyncThunk(
     'products/fetchProducts',
     async (lastLoadedId) => {
         const cursor = lastLoadedId ?? -1;
-        const response = await fetch(`/api/products/${cursor}`);
+        const response = await fetch(`http://localhost:8000/api/products/${cursor}`);
         if (!response.ok) {
             throw new Error(`Failed to load products (${response.status})`);
         }
