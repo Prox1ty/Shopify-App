@@ -18,6 +18,23 @@ export const fetchProducts = createAsyncThunk(
     }
 )
 
+export const deleteProduct = createAsyncThunk(
+    "products/deleteProduct",
+    async (productId) => {
+        const response = await fetch(`http://localhost:8000/api/products/${productId}`, {
+            method: "DELETE",
+            credentials: 'include',
+
+        })
+        if (!response.ok) {
+            throw new Error(`Delete failed (${response.status})`);
+        }
+
+        return productId;
+    }
+
+)
+
 const initialState = {
     items: [],
     status: 'idle',
@@ -46,7 +63,10 @@ export const productSlice = createSlice({
         .addCase(fetchProducts.rejected, (state, action) => {
             state.status = 'failed';
             state.error = action.error.message;
-        });
+        })
+        .addCase(deleteProduct.fulfilled, (state, action) => {
+            state.items = state.items.filter(product => product.id != action.payload);
+        })
     }
 });
 

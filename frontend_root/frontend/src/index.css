@@ -9,3 +9,38 @@ body,
 #root {
   min-height: 100%;
 }
+
+.delete-button {
+  isolation: isolate;
+  background-color: #ef4444;
+  box-shadow: 0 1px 2px rgb(127 29 29 / 0.2);
+  transition: transform 200ms ease-out, box-shadow 200ms ease-out;
+}
+
+.delete-button::before {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-color: #991b1b;
+  content: "";
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 500ms ease-out;
+}
+
+.delete-button:hover::before {
+  transform: scaleX(1);
+}
+
+.delete-button:hover {
+  box-shadow: 0 6px 12px rgb(127 29 29 / 0.3);
+}
+
+.delete-button:active {
+  box-shadow: inset 0 2px 5px rgb(69 10 10 / 0.35);
+  transform: translateY(-0.25rem) scaleX(1.01);
+}
+
+.delete-button:active span {
+  transform: scale(1.25);
+}

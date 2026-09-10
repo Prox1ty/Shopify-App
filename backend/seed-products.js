@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url';
 import mongoose from 'mongoose';
 import { config } from 'dotenv';
 import { Product } from './models/product.js';
+import { Counter } from './models/counter.js';
 
 config();
 
@@ -14,14 +15,21 @@ const productsPath = path.resolve(
 );
 
 const seedProducts = async () => {
+    await mongoose.connect(process.env.MONGODB_CONNECTIONURL);
+
     const productsFile = await readFile(productsPath, 'utf8');
     const products = JSON.parse(productsFile);
     const documents = products.map(({ id, ...product }) => ({
         ...product,
         catalogId: id
     }));
-
-    await mongoose.connect(process.env.MONGODB_CONNECTIONURL);
+    // get the last id and set it to counter's sequenceValue
+    const lastId = documents.at(-1).catalogId;
+    await Counter.findOneAndUpdate(
+        { _id: "products" },
+        { $set: { sequenceValue: lastId } },
+        { upsert: true, returnDocument: 'after' }
+    );
     await Product.deleteMany({});
     await Product.insertMany(documents);
 

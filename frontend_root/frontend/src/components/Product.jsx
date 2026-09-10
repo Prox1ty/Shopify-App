@@ -54,7 +54,7 @@ export default function Product() {
         
             <div className="w-full md:w-1/2 flex flex-col justify-between min-h-[450px]">
                 <div>
-                    <span className="text-gray-400 font-bold text-sm">{`PRODUCT SKU: #0${product.id}`}</span>
+                    <span className="text-gray-400 font-bold text-sm">{`PRODUCT SKU: #0${product.catalogId}`}</span>
                     <h1 className="text-4xl font-black mt-1 mb-4 text-gray-900">{product.name}</h1>
                     <p className="text-gray-600 leading-relaxed text-base mb-6">{product.description}</p>
                     

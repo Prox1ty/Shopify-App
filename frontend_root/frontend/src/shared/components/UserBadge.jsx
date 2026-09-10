@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   Avatar,
   IconButton,
@@ -7,13 +8,16 @@ import {
   Menu,
   MenuItem,
 } from "@mui/material";
+import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
 import LogoutIcon from "@mui/icons-material/Logout";
+
 
 function UserBadge() {
   const [anchorEl, setAnchorEl] = useState(null);
   const [user, setUser] = useState(null);
   const menuOpen = Boolean(anchorEl);
   const isLoggedIn = Boolean(user);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch("http://localhost:8000/user/api/me", { credentials: "include" })
@@ -64,7 +68,15 @@ function UserBadge() {
           </ListItemIcon>
           <ListItemText>Log out</ListItemText>
         </MenuItem>
-      </Menu>
+        {user.role?.toUpperCase() === 'ADMIN' && 
+          <MenuItem onClick={() => navigate('/addProduct')}>
+            <ListItemIcon>
+              <AddOutlinedIcon fontSize="small" />
+            </ListItemIcon>
+            <ListItemText>Add Product</ListItemText>
+          </MenuItem>
+        }
+        </Menu>
     </>
     }
     </>
