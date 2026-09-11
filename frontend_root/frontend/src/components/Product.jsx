@@ -9,9 +9,10 @@ export default function Product() {
     
     const [product, setProduct] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [imgPath, setImgPath] = useState("");
 
     useEffect(() => {
-        fetch(`/api/get/${prodId}`)
+        fetch(`http://localhost:8000/api/get/${prodId}`)
             .then(async (response) => {
             if (!response.ok) {
                 throw new Error(`Failed to load product (${response.status})`);
@@ -21,6 +22,11 @@ export default function Product() {
         .then((data) => {
             const foundProduct = data.product;
             setProduct(foundProduct);
+            setImgPath(() => {
+                return foundProduct.imageUrl?.startsWith('/uploads/') ?
+                `http://localhost:8000${foundProduct.imageUrl}`
+                : foundProduct.imageUrl
+            });
             setLoading(false);
         }).catch((err) => {
             console.error(`Error occured while fetching product of id #${prodId}.\n`, err);
@@ -45,7 +51,7 @@ export default function Product() {
         <div className="max-w-5xl mx-auto p-10 flex flex-col md:flex-row gap-10 items-center md:items-start">
             <div className="w-full md:w-1/2">
                 <img 
-                    src={product.imageUrl} 
+                    src={imgPath} 
                     alt={`Picture of ${product.name}`} 
                     className="w-full h-[450px] object-cover border-2 border-black rounded-3xl shadow-sm"
                 />
@@ -54,7 +60,7 @@ export default function Product() {
         
             <div className="w-full md:w-1/2 flex flex-col justify-between min-h-[450px]">
                 <div>
-                    <span className="text-gray-400 font-bold text-sm">{`PRODUCT SKU: #0${product.id}`}</span>
+                    <span className="text-gray-400 font-bold text-sm">{`PRODUCT SKU: #0${product.catalogId}`}</span>
                     <h1 className="text-4xl font-black mt-1 mb-4 text-gray-900">{product.name}</h1>
                     <p className="text-gray-600 leading-relaxed text-base mb-6">{product.description}</p>
                     

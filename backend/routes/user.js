@@ -5,13 +5,14 @@ const routes = Router();
 routes.post('/api/signup', async (req, res) => {
     // req would have the data in the body
     const { fullName, email, password } = req.body;
+    console.log(fullName);
     const createdUser = await User.create({
         fullName,
         email,
         password,
     });
     
-    return res.redirect('/register');
+    return res.json({success:"true"}).redirect('/register');
 });
 
 routes.post('/api/signin', async (req, res) => {
@@ -28,10 +29,10 @@ routes.post('/api/signin', async (req, res) => {
                 maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days expiration date
             });
         
-        return res.status(303).redirect('/');
+        return res.status(200).json({ success: true, message: "Logged in" });
     } catch (error) {
         console.error("Sign-in failed:", error.message);
-        return res.status(303).redirect('/register');
+        return res.status(303).json({ success: false, error, message: "Failed to Log in" });
     }
 })
 

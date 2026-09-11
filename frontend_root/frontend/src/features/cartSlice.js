@@ -16,7 +16,10 @@ export const checkout = createAsyncThunk(
                 total: totalPrice
             }
 
-            const response = await axios.post('/orders', orderData);
+            const response = await axios.post('http://localhost:8000/orders', orderData, {
+                withCredentials: true
+            });
+
             return response.data;
         } catch (error) {
             return rejectWithValue(error.response?.data || "Failed to place order");

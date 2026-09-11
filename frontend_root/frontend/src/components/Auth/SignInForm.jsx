@@ -1,8 +1,37 @@
 import { Button, Checkbox, FormControlLabel, Link, Stack, TextField, Typography } from "@mui/material";
-
+import { useNavigate } from "react-router-dom";
 export default function SignInForm() {
+    const navigate = useNavigate();
+
+    const handleSubmit = async (e) => {
+
+        e.preventDefault(); 
+
+        const formData = new FormData(e.currentTarget);
+
+        try {
+            const response = await fetch('http://localhost:8000/user/api/signin', {
+                method: 'POST',
+                body: new URLSearchParams(formData),
+                credentials: 'include'
+            });
+
+            if (!response.ok) {
+                throw new Error('Sign in failed');
+            }
+
+            const data = await response.json();
+            console.log('Signed in successfully:', data);
+            navigate('/');
+
+
+        } catch (err) {
+            console.error(err);
+        }
+    };
+
     return (
-        <Stack component="form" action="/user/api/signin" method="post" spacing={2.25}>
+        <Stack component="form" onSubmit={handleSubmit} spacing={2.25}>
             <TextField
                 label="Email address"
                 name="email"

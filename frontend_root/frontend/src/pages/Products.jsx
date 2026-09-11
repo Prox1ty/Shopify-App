@@ -47,7 +47,7 @@ export default function Products() {
                                                 imgSrc={url} 
                                                 prodPrice={price}
                                             />
-                                    </Link>
+                                         </Link>
                                     );
                                     
 

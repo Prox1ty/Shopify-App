@@ -4,7 +4,7 @@ export const fetchProducts = createAsyncThunk(
     'products/fetchProducts',
     async (lastLoadedId) => {
         const cursor = lastLoadedId ?? -1;
-        const response = await fetch(`/api/products/${cursor}`);
+        const response = await fetch(`http://localhost:8000/api/products/${cursor}`);
         if (!response.ok) {
             throw new Error(`Failed to load products (${response.status})`);
         }
@@ -16,6 +16,23 @@ export const fetchProducts = createAsyncThunk(
         // redux request guard. Protects against react's strict mode double render.
         condition: (_, { getState }) => getState().products.status !== 'loading'
     }
+)
+
+export const deleteProduct = createAsyncThunk(
+    "products/deleteProduct",
+    async (productId) => {
+        const response = await fetch(`http://localhost:8000/api/products/${productId}`, {
+            method: "DELETE",
+            credentials: 'include',
+
+        })
+        if (!response.ok) {
+            throw new Error(`Delete failed (${response.status})`);
+        }
+
+        return productId;
+    }
+
 )
 
 const initialState = {
@@ -46,7 +63,10 @@ export const productSlice = createSlice({
         .addCase(fetchProducts.rejected, (state, action) => {
             state.status = 'failed';
             state.error = action.error.message;
-        });
+        })
+        .addCase(deleteProduct.fulfilled, (state, action) => {
+            state.items = state.items.filter(product => product.id != action.payload);
+        })
     }
 });
 

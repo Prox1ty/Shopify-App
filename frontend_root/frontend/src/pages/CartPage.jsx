@@ -10,6 +10,8 @@ export default function CartPage() {
     const [user, setUser] = useState(null);
     const navigate = useNavigate();
     const handleCheckout = async() => {
+
+        console.log(user);
         const result = await dispatch(checkout());
 
         if (checkout.rejected.match(result)) {
@@ -32,7 +34,7 @@ export default function CartPage() {
     }
 
     useEffect(() => {
-        fetch('/user/api/me', {
+        fetch('http://localhost:8000/user/api/me', {
             method: 'GET',
             credentials: 'include'
         }).then(response => response.ok ? response.json() : null)
