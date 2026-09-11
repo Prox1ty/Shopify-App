@@ -8,6 +8,7 @@ import CartPage from './pages/CartPage.jsx';
 import Footer from './shared/components/Footer.jsx';
 import UserRegistration from './pages/UserRegistration.jsx';
 import AddProduct from './pages/AddProduct.jsx';
+import UpdateProduct from './pages/EditProduct.jsx';
 
 const Home = lazy(() => import("./pages/Home.jsx"));
 const About = lazy(() => import("./pages/About.jsx"));
@@ -36,6 +37,7 @@ export default function App() {
                 <Route path= "/Cart" element={<CartPage />} />
                 <Route path="/register" element={<UserRegistration />} />
                 <Route path="/addProduct" element={<AddProduct />} />
+                <Route path="/editProduct/:prodId" element={<UpdateProduct />} />
             </Routes>
           </main>
             <Footer />

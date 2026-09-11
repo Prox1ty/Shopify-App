@@ -10,6 +10,32 @@ body,
   min-height: 100%;
 }
 
+.edit-button {
+  width: 2.5rem;
+  color: #000;
+  background-color: #fff;
+  transition: width 300ms ease-out, transform 300ms ease-out, color 300ms ease-out,
+    background-color 300ms ease-out;
+}
+
+.edit-button-label {
+  max-width: 0;
+  opacity: 0;
+  transition: max-width 300ms ease-out, opacity 300ms ease-out;
+}
+
+.edit-button:hover {
+  width: 6rem;
+  color: #fff;
+  background-color: #1976d2;
+  transform: scale(1.05);
+}
+
+.edit-button:hover .edit-button-label {
+  max-width: 3rem;
+  opacity: 1;
+}
+
 .delete-button {
   isolation: isolate;
   background-color: #ef4444;

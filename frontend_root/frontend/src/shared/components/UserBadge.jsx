@@ -24,7 +24,7 @@ function UserBadge() {
       .then((response) => response.ok ? response.json() : null)
       .then((currentUser) => setUser(currentUser))
       .catch(() => setUser(null));
-  }, []);
+  }, [user, isLoggedIn]);
 
   const handleLogout = async () => {
     setAnchorEl(null);

@@ -9,6 +9,7 @@ export default function Product() {
     
     const [product, setProduct] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [imgPath, setImgPath] = useState("");
 
     useEffect(() => {
         fetch(`http://localhost:8000/api/get/${prodId}`)
@@ -21,6 +22,11 @@ export default function Product() {
         .then((data) => {
             const foundProduct = data.product;
             setProduct(foundProduct);
+            setImgPath(() => {
+                return foundProduct.imageUrl?.startsWith('/uploads/') ?
+                `http://localhost:8000${foundProduct.imageUrl}`
+                : foundProduct.imageUrl
+            });
             setLoading(false);
         }).catch((err) => {
             console.error(`Error occured while fetching product of id #${prodId}.\n`, err);
@@ -45,7 +51,7 @@ export default function Product() {
         <div className="max-w-5xl mx-auto p-10 flex flex-col md:flex-row gap-10 items-center md:items-start">
             <div className="w-full md:w-1/2">
                 <img 
-                    src={product.imageUrl} 
+                    src={imgPath} 
                     alt={`Picture of ${product.name}`} 
                     className="w-full h-[450px] object-cover border-2 border-black rounded-3xl shadow-sm"
                 />
